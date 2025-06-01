@@ -1,10 +1,16 @@
 <template>
     <div>
         <h2>Productos</h2>
+                     <router-link to="/crear">
+            <button>Añadir Producto</button>
+        </router-link>
+
         <ul>
             <li v-for="product in products" :key="product.id">{{ product.name }} - {{ product.price }}€
                  <div>
-          <button @click="editProduct(product)">Editar</button>
+          <router-link :to="`/edit/${product.id}`">
+            <button>Editar</button>
+          </router-link>
           <button @click="deleteProduct(product.id!)">Eliminar</button>
         </div>
 
@@ -23,7 +29,7 @@ import { getAllProducts, deleteProduct as deleteProductService } from '../servic
 import type {Product} from '../types/Product.ts';
 
 const products = ref<Product[]>([]);
-const emit = defineEmits(['edit']);
+//const emit = defineEmits(['edit']);
 
 const fetchProducts = async () => {
     try {
@@ -45,8 +51,9 @@ const deleteProduct = async (id: number) => {
     }
 };
 
+/*
 const editProduct = (product: Product) => {
     emit('edit', product)
 };
-
+*/
 </script>

@@ -56,7 +56,7 @@ watch(() => props.product, (newProduct) => {
         Object.assign(form, newProduct);
         message.value = '';
     }
-});
+}, { immediate: true });
 
 const submitForm = async () => {
     message.value= '';

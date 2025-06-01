@@ -1,6 +1,8 @@
 <template>
   <h1>Bienvenido a la página de productos</h1>
-  <ProductList />
+    <div>
+    <ProductList />
+  </div>
 </template>
 
 <script setup lang="ts">
