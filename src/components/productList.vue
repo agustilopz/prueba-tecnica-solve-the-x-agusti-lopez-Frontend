@@ -13,7 +13,7 @@
 
 import { ref, onMounted } from 'vue';
 import { getAllProducts } from '../services/product.service.ts';
-import type {Product} from '../types/Product';
+import type {Product} from '../types/Product.ts';
 
 const products = ref<Product[]>([]);
 
