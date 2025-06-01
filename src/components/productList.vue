@@ -2,7 +2,13 @@
     <div>
         <h2>Productos</h2>
         <ul>
-            <li v-for="product in products" :key="product.id">{{ product.name }} - {{ product.price }}€</li>
+            <li v-for="product in products" :key="product.id">{{ product.name }} - {{ product.price }}€
+                 <div>
+          <button @click="editProduct(product)">Editar</button>
+          <button @click="deleteProduct(product.id!)">Eliminar</button>
+        </div>
+
+            </li>
         </ul>
 
     </div>
@@ -12,14 +18,35 @@
 <script lang="ts" setup>
 
 import { ref, onMounted } from 'vue';
-import { getAllProducts } from '../services/product.service.ts';
+import { getAllProducts, deleteProduct as deleteProductService } from '../services/product.service';
+
 import type {Product} from '../types/Product.ts';
 
 const products = ref<Product[]>([]);
+const emit = defineEmits(['edit']);
 
-onMounted(async () => {
-    const { data } = await getAllProducts();
-    products.value = data;
-});
+const fetchProducts = async () => {
+    try {
+        const { data }  = await getAllProducts();
+        products.value= data;
+    } catch {
+        products.value = [];
+    }
+};
+
+onMounted(fetchProducts);
+
+const deleteProduct = async (id: number) => {
+    try {
+        await deleteProductService(id);
+        await fetchProducts();
+    } catch {
+        alert('Error al elimianr el producto')
+    }
+};
+
+const editProduct = (product: Product) => {
+    emit('edit', product)
+};
 
 </script>

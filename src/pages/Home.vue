@@ -1,11 +1,8 @@
 <template>
-<div>
-   <ProductList /> 
-   
-</div>
-
+  <h1>Bienvenido a la página de productos</h1>
+  <ProductList />
 </template>
 
-<script>
-import ProductList from '../components/ProductList.vue';
+<script setup lang="ts">
+import ProductList from '../components/ProductList.vue'
 </script>
