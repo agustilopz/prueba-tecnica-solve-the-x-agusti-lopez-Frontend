@@ -9,10 +9,10 @@
 
 </template>
 
-<script>
+<script lang="ts" setup>
 
 import { ref, onMounted } from 'vue';
-import { getAllProducts } from '../services/productService';
+import { getAllProducts } from '../services/product.service.ts';
 import type {Product} from '../types/Product';
 
 const products = ref<Product[]>([]);
