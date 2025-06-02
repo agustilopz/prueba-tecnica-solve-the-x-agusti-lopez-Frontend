@@ -1,33 +1,44 @@
 <template>
-<form @submit.prevent="submitForm">
-    <h2>Añadir Producto</h2>
+  <div class="form-container">
+    <div class="form-card">
+      <form @submit.prevent="submitForm">
+        <h2 class="form-title">Añadir Producto</h2>
 
-    <label>Nombre: 
-        <input v-model="form.name" type="text" required>
-    </label>
+        <div class="form-group">
+          <label class="form-label">Nombre:</label>
+          <input v-model="form.name" class="form-input" type="text" required>
+        </div>
 
-        <label>Precio: 
-        <input v-model.number="form.price" type="number" step="0.01" required>
-    </label>
+        <div class="form-group">
+          <label class="form-label">Precio:</label>
+          <input v-model.number="form.price" class="form-input" type="number" step="0.01" required>
+        </div>
 
-            <label>Descripción: 
-        <textarea v-model="form.description" type="text"></textarea>
-    </label>
+        <div class="form-group">
+          <label class="form-label">Descripción:</label>
+          <textarea v-model="form.description" class="form-textarea"></textarea>
+        </div>
 
-        <label>Imagen URL: 
-        <input v-model="form.image" type="text">
-    </label>
+        <div class="form-group">
+          <label class="form-label">Imagen URL:</label>
+          <input v-model="form.image" class="form-input" type="text">
+        </div>
 
-        <label>Categoría ID: 
-        <input v-model.number="form.cat_id" type="number" required>
-    </label>
+        <div class="form-group">
+          <label class="form-label">Categoría ID:</label>
+          <input v-model.number="form.cat_id" class="form-input" type="number" required>
+        </div>
 
-    <button type="submit">Añadir producto</button>
+        <button type="submit" class="btn btn-primary form-submit">Añadir producto</button>
 
-    <p v-if="message" :class="{'text-green-600': success, 'text-red-600': !success}" class="mt-4">{{ message }}</p>
-
-</form>
-
+        <div v-if="message" 
+             :class="{'form-message success': success, 'form-message error': !success}" 
+             class="form-message">
+          {{ message }}
+        </div>
+      </form>
+    </div>
+  </div>
 </template>
 
 <script lang="ts" setup>

@@ -1,35 +1,56 @@
 <template>
-    <div>
-<h2 class="text-blue-600 text-3xl font-bold">Productos</h2>
-
-<router-link to="/crear">
-            <button>Añadir Producto</button>
-        </router-link>
-
-        <ul>
-            <li v-for="product in products" :key="product.id">
-                               <div>
-                    <strong>{{ product.name }}</strong> - {{ product.price }}€
+    <div class="products-container">
+        <div class="products-header">
+            <h2 class="products-title">Productos</h2>
+            <router-link to="/crear" class="btn btn-primary">
+                Añadir Producto
+            </router-link>
+        </div>
+        
+        <ul class="products-list">
+            <li v-for="product in products" :key="product.id" class="product-card">
+                <div class="product-image-container">
+                    <img 
+                        v-if="product.image" 
+                        :src="product.image" 
+                        alt="Imagen del producto" 
+                        class="product-image"
+                    />
+                    <div v-else class="product-image-placeholder">
+                        Sin imagen
+                    </div>
                 </div>
-                <div>
-                    <img :src="product.image" alt="Imagen del producto" style="max-width: 150px; max-height: 150px;" v-if="product.image"/>
-                </div>
-                <div>
-                    <span><strong>Descripción:</strong> {{ product.description }}</span>
-                </div>
-                <div>
-                    <span><strong>Categoría:</strong> {{ product.cat_id }}</span>
-                </div>
-                <div>
-                             <router-link :to="`/edit/${product.id}`">
-                        <button>Editar</button>
-                    </router-link>
-                    <button @click="deleteProduct(product.id!)">Eliminar</button>
+                
+                <div class="product-content">
+                    <div class="product-header">
+                        <div class="product-info">
+                            <h3 class="product-name">{{ product.name }}</h3>
+                            <div class="product-price">{{ product.price }}€</div>
+                        </div>
+                    </div>
+                    
+                    <div class="product-details">
+                        <div class="product-detail">
+                            <strong>Descripción:</strong> 
+                            <span class="product-description">{{ product.description }}</span>
+                        </div>
+                        <div class="product-detail">
+                            <strong>Categoría:</strong> {{ product.cat_id }}
+                        </div>
+                    </div>
+                    
+                    <div class="product-actions">
+                        <router-link :to="`/edit/${product.id}`" class="btn btn-secondary btn-sm">
+                            Editar
+                        </router-link>
+                        <button @click="deleteProduct(product.id!)" class="btn btn-danger btn-sm">
+                            Eliminar
+                        </button>
+                    </div>
                 </div>
             </li>
         </ul>
     </div>
-
 </template>
 
 <script lang="ts" setup>
