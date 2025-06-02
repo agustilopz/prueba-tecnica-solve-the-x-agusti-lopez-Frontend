@@ -1,22 +1,33 @@
 <template>
     <div>
-        <h2>Productos</h2>
-                     <router-link to="/crear">
+<h2 class="text-blue-600 text-3xl font-bold">Productos</h2>
+
+<router-link to="/crear">
             <button>Añadir Producto</button>
         </router-link>
 
         <ul>
-            <li v-for="product in products" :key="product.id">{{ product.name }} - {{ product.price }}€
-                 <div>
-          <router-link :to="`/edit/${product.id}`">
-            <button>Editar</button>
-          </router-link>
-          <button @click="deleteProduct(product.id!)">Eliminar</button>
-        </div>
-
+            <li v-for="product in products" :key="product.id">
+                               <div>
+                    <strong>{{ product.name }}</strong> - {{ product.price }}€
+                </div>
+                <div>
+                    <img :src="product.image" alt="Imagen del producto" style="max-width: 150px; max-height: 150px;" v-if="product.image"/>
+                </div>
+                <div>
+                    <span><strong>Descripción:</strong> {{ product.description }}</span>
+                </div>
+                <div>
+                    <span><strong>Categoría:</strong> {{ product.cat_id }}</span>
+                </div>
+                <div>
+                             <router-link :to="`/edit/${product.id}`">
+                        <button>Editar</button>
+                    </router-link>
+                    <button @click="deleteProduct(product.id!)">Eliminar</button>
+                </div>
             </li>
         </ul>
-
     </div>
 
 </template>
@@ -57,3 +68,6 @@ const editProduct = (product: Product) => {
 };
 */
 </script>
+
+
+                    <img :src="product.image" alt="Imagen del producto" style="max-width: 150px; max-height: 150px;" v-if="product.image"/>

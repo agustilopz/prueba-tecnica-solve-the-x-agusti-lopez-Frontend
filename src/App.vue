@@ -16,7 +16,7 @@
 
 <script setup lang="ts">
 import { ref } from 'vue';
-import ProductList from './components/ProductList.vue';
+//import ProductList from './components/ProductList.vue';
 //import ProductForm from './components/ProductForm.vue';
 //import ProductEdit from './components/ProductEdit.vue';
 

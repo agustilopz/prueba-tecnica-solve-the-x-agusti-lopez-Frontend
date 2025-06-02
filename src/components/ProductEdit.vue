@@ -7,7 +7,7 @@
     </label>
 
         <label>Precio: 
-        <input v-model.number="form.price" type="number" required>
+        <input v-model.number="form.price" type="number" step="0.01" required>
     </label>
 
             <label>Descripción: 
