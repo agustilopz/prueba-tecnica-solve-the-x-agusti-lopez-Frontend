@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Variables globals */
+/* Variables globales */
 :root {
   --primary-color: #000000;
   --primary-hover: #1a1a1a;
@@ -21,7 +21,7 @@
   --shadow-hover: 0 10px 25px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
 }
 
-/* Reset i base */
+/* Reset y base */
 * {
   box-sizing: border-box;
 }
@@ -115,7 +115,7 @@ body {
   font-size: 0.8rem;
 }
 
-/* Llista de productes */
+/* Lista de productos */
 .products-list {
   list-style: none;
   padding: 0;
@@ -148,7 +148,7 @@ body {
   border-color: var(--primary-color);
 }
 
-/* Imatge del producte */
+/* Imagen del producto */
 .product-image-container {
   position: relative;
   width: 100%;
@@ -176,7 +176,7 @@ body {
   background-color: #f9fafb;
 }
 
-/* Contingut del producte */
+/* Contenido del producto */
 .product-content {
   padding: 1rem;
   display: flex;
@@ -184,7 +184,7 @@ body {
   flex: 1;
 }
 
-/* Header del producte */
+/* Header del producto */
 .product-header {
   margin-bottom: 0.75rem;
 }
@@ -211,7 +211,7 @@ body {
   color: var(--text-primary);
 }
 
-/* Detalls del producte */
+/* Detalles del producto */
 .product-details {
   margin-bottom: 1rem;
   flex: 1;
@@ -240,7 +240,7 @@ body {
   overflow: hidden;
 }
 
-/* Accions del producte */
+/* Acciones del producto */
 .product-actions {
   display: flex;
   gap: 0.5rem;

@@ -4,8 +4,6 @@
 </template>
 
 <script setup lang="ts">
+// Importa el formulario de producto para crear uno nuevo
 import ProductForm from '../components/ProductForm.vue'
-
-
-
 </script>

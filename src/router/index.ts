@@ -1,3 +1,14 @@
+// index.ts
+// Configuración de rutas para la aplicación Vue.
+//
+// Rutas disponibles:
+//   - /           -> Home.vue (Página principal, lista de productos)
+//   - /crear      -> CreateProduct.vue (Formulario para crear producto)
+//   - /edit/:id   -> EditProduct.vue (Formulario para editar producto)
+//
+// Uso:
+// 
+
 import { createRouter, createWebHistory } from 'vue-router'
 import Home from '../pages/Home.vue'
 import CreateProduct from '../pages/CreateProduct.vue'

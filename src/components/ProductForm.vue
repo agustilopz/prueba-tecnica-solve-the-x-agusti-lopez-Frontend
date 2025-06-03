@@ -42,6 +42,8 @@
 </template>
 
 <script lang="ts" setup>
+// Componente para añadir productos nuevos.
+
 import { reactive, ref} from 'vue';
 import { createProduct } from '../services/product.service';
 
@@ -72,7 +74,7 @@ const submitForm = async () => {
 
             emit('created');
 
-            // Rest form
+            // Restablece el formulario
             form.name =  '';
             form.price = 0,
             form.description = '';

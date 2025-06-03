@@ -42,11 +42,16 @@
 </template>
 
 <script lang="ts" setup>
+// Componente para editar productos existentes.
+
 import { reactive, ref, watch, defineProps, defineEmits } from 'vue';
 import { updateProduct } from '../services/product.service';
 import type { Product } from '../types/Product';
 
+// Props: producto a editar
 const props = defineProps<{ product: Product | null }>();
+
+// Emits: updated (cuando se actualiza el producto), cancel (no usado)
 const emit = defineEmits(['updated', 'cancel']);
 
 const form = reactive<Product>({
@@ -62,6 +67,7 @@ const form = reactive<Product>({
 const message = ref('');
 const success = ref(false);
 
+// Actualiza el formulario cuando cambia la prop product
 watch(() => props.product, (newProduct) => {
     if(newProduct) {
         Object.assign(form, newProduct);

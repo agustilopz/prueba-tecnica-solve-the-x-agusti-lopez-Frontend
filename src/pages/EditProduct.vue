@@ -10,10 +10,11 @@ import { getProductById } from '../services/product.service';
 import ProductEdit from '../components/ProductEdit.vue';
 import type { Product } from '../types/Product';
 
+// Obtiene el parámetro de la ruta y el producto a editar
 const route = useRoute()
 const product = ref<Product | null>(null);
-//const id = Number(route.params.id)
 
+// Carga el producto al montar el componente
 onMounted(async () => {
   const id = Number(route.params.id);
   const { data } = await getProductById(id);

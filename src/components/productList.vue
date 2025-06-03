@@ -53,7 +53,9 @@
     </div>
 </template>
 
+
 <script lang="ts" setup>
+// Componente para mostrar la lista de productos.
 
 import { ref, onMounted } from 'vue';
 import { getAllProducts, deleteProduct as deleteProductService } from '../services/product.service';
@@ -61,7 +63,6 @@ import { getAllProducts, deleteProduct as deleteProductService } from '../servic
 import type {Product} from '../types/Product.ts';
 
 const products = ref<Product[]>([]);
-//const emit = defineEmits(['edit']);
 
 const fetchProducts = async () => {
     try {
@@ -72,8 +73,10 @@ const fetchProducts = async () => {
     }
 };
 
+// Carga los productos al montar el componente
 onMounted(fetchProducts);
 
+// Elimina un producto y recarga la lista
 const deleteProduct = async (id: number) => {
     try {
         await deleteProductService(id);
@@ -83,12 +86,4 @@ const deleteProduct = async (id: number) => {
     }
 };
 
-/*
-const editProduct = (product: Product) => {
-    emit('edit', product)
-};
-*/
 </script>
-
-
-                    <img :src="product.image" alt="Imagen del producto" style="max-width: 150px; max-height: 150px;" v-if="product.image"/>

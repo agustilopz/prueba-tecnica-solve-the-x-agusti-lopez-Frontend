@@ -6,6 +6,7 @@
 </template>
 
 <script setup lang="ts">
+// Importa el listado de productos para mostrar en la página principal
 import ProductList from '../components/ProductList.vue'
 
 </script>
