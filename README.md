@@ -1,4 +1,4 @@
-# Prova Técnica SolveTheX - Frontend
+# Prueba Técnica SolveTheX - Frontend
 
 Este repositorio contiene el **frontend** de la prueba técnica para SolveTheX. Es una SPA desarrollada con **Vite**, **Vue 3** (Composition API) y **TypeScript**, que consume la API REST del backend para gestionar productos.
 
