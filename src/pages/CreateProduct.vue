@@ -1,6 +1,6 @@
 <template>
   <h1>Crear Producto</h1>
-  <ProductForm />
+  <ProductForm @created="$router.push('/')" />
 </template>
 
 <script setup lang="ts">

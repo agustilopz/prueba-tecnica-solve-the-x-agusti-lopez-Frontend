@@ -45,6 +45,9 @@
 import { reactive, ref} from 'vue';
 import { createProduct } from '../services/product.service';
 
+const emit = defineEmits(['created', 'cancel']);
+
+
 const form = reactive({
     name: '',
     price: 0,
@@ -66,6 +69,8 @@ const submitForm = async () => {
         if(res.data.success) {
             message.value = res.data.success;
             success.value = true;
+
+            emit('created');
 
             // Rest form
             form.name =  '';
